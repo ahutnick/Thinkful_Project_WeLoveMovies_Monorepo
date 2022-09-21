@@ -1,0 +1,17 @@
+{
+  "name": "project-_welovemovies",
+  "version": "1.0.0",
+  "description": "monorepo for WeLoveMovies assignment",
+  "scripts": {
+    "build": "npm -prefix client run build",
+    "preinstall": "cd ./Project-_WeLoveMovies_Backend && npm install",
+    "install": "cd ./Project-_WeLoveMovies_Frontend && npm install",
+    "start": "npx concurrently 'npm run start:backend' 'npm run start:client'",
+    "start:backend": "npm --prefix ./Project-_WeLoveMovies_Backend start",
+    "start:client": "npm --prefix ./Project-_WeLoveMovies_Frontend start",
+    "start:dev": "npx concurrently 'npm run start:dev --prefix ./Project-_WeLoveMovies_Backend' 'npm start --prefix ./Project-_WeLoveMovies_Frontend'",
+    "test": "npm run test:Project-_WeLoveMovies_Frontend && npm run test:Project-_WeLoveMovies_Backend start"
+  },
+  "author": "Tasha Hutnick",
+  "license": "UNLICENSED"
+}
