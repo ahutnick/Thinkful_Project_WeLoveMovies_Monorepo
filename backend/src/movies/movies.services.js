@@ -32,8 +32,17 @@ function listMovieReviews(movieId) {
         .then((results) => results.map((result) => addCritic(result)));
 }
 
+function listMovieTheaters(movieId) {
+    return knex('movies')
+        .innerJoin('movies_theaters', 'movies.movie_id', '=', 'movies_theaters.movie_id')
+        .innerJoin('theaters', 'movies_theaters.theater_id', '=', 'theaters.theater_id')
+        .select('theaters.*')
+        .where('movies.movie_id', movieId);
+}
+
 module.exports = {
     list,
     read,
     listMovieReviews,
+    listMovieTheaters
 }

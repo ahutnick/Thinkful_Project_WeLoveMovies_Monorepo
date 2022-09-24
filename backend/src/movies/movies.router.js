@@ -1,14 +1,10 @@
 const router = require("express").Router();
 const moviesController = require("./movies.controller");
 const methodNotAllowed = require("../errors/methodNotAllowed");
-const cors = require("cors");
 
-const corsOrigin = {
-    origin: ['https://thnkfl-welovemovies-client.herokuapp.com', 'http://localhost:3000'],
-    credentials: true
-}
-
-router.use(cors(corsOrigin));
+router.route("/:movieId/theaters")
+    .get(moviesController.listMovieTheaters)
+    .all(methodNotAllowed);
 
 router.route("/:movieId/reviews")
     .get(moviesController.listMovieReviews)
