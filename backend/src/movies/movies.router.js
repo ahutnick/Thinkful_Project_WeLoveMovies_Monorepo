@@ -3,7 +3,11 @@ const moviesController = require("./movies.controller");
 const methodNotAllowed = require("../errors/methodNotAllowed");
 const cors = require("cors");
 
-router.use(cors())
+const corsOrigin = {
+    origin: ['https://thnkfl-welovemovies-client.herokuapp.com/', 'http://localhost:3000']
+}
+
+router.use(cors(corsOrigin));
 
 router.route("/:movieId/reviews")
     .get(moviesController.listMovieReviews)
