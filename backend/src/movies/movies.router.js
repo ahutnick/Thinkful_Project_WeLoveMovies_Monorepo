@@ -4,7 +4,7 @@ const methodNotAllowed = require("../errors/methodNotAllowed");
 const cors = require("cors");
 
 const corsOrigin = {
-    origin: ['https://thnkfl-welovemovies-client.herokuapp.com/', 'http://localhost:3000'],
+    origin: ['https://thnkfl-welovemovies-client.herokuapp.com', 'http://localhost:3000'],
     credentials: true
 }
 
