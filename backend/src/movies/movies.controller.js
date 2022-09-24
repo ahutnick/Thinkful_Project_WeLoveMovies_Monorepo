@@ -1,5 +1,4 @@
 const moviesServices = require("./movies.services");
-const hasProperties = require("../errors/hasProperties");
 const asyncErrorBoundary = require("../errors/asyncErrorBoundary");
 
 
