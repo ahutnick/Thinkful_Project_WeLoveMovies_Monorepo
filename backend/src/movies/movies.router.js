@@ -5,6 +5,10 @@ const cors = require("cors");
 
 router.use(cors())
 
+router.route("/:movieId/reviews")
+    .get(moviesController.listMovieReviews)
+    .all(methodNotAllowed);
+
 router.route("/:movieId")
     .get(moviesController.read)
     .all(methodNotAllowed);
