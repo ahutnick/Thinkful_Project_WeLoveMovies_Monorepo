@@ -8,7 +8,9 @@ const corsPut = cors({methods: "PUT"});
 
 router.route("/:review_id")
     .put(corsPut, reviewsController.update)
+    .options(corsPut)
     .delete(corsDelete, reviewsController.delete)
+    .options(corsDelete)
     .all(methodNotAllowed);
 
 module.exports = router;
