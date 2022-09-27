@@ -1,6 +1,9 @@
 const router = require("express").Router();
 const moviesController = require("./movies.controller");
 const methodNotAllowed = require("../errors/methodNotAllowed");
+const cors = require("cors");
+
+router.use(cors());
 
 router.route("/:movieId/theaters")
     .get(moviesController.listMovieTheaters)

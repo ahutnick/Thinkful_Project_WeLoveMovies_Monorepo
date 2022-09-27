@@ -1,10 +1,14 @@
 const router = require("express").Router()
 const reviewsController = require("./reviews.controller");
 const methodNotAllowed = require("../errors/methodNotAllowed");
+const cors = require("cors");
+
+const corsDelete = cors({methods: "DELETE"});
+const corsPut = cors({methods: "PUT"});
 
 router.route("/:review_id")
-    .put(reviewsController.update)
-    .delete(reviewsController.delete)
+    .put(corsPut, reviewsController.update)
+    .delete(corsDelete, reviewsController.delete)
     .all(methodNotAllowed);
 
 module.exports = router;
