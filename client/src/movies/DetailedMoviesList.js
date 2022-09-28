@@ -16,7 +16,7 @@ function DetailedMoviesList() {
   }, []);
 
   const list = movies.map((movie) => (
-    <DetailedMovie key={movie.movie_id} movie={movie} />
+    <DetailedMovie key={movie.id} movie={movie} />
   ));
 
   return (

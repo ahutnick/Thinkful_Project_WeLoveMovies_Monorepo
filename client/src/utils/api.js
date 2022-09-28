@@ -47,7 +47,8 @@ async function fetchJson(url, options, onCancel) {
 
 function populateReviews(signal) {
   return async (movie) => {
-    const url = `${API_BASE_URL}/movies/${movie.id}/reviews`;
+    const id = movie.movie_id || movie.id;
+    const url = `${API_BASE_URL}/movies/${id}/reviews`;
     movie.reviews = await fetchJson(url, { headers, signal }, []);
     return movie;
   };
@@ -55,7 +56,8 @@ function populateReviews(signal) {
 
 function populateTheaters(signal) {
   return async (movie) => {
-    const url = `${API_BASE_URL}/movies/${movie.id}/theaters`;
+    const id = movie.movie_id || movie.id;
+    const url = `${API_BASE_URL}/movies/${id}/theaters`;
     movie.theaters = await fetchJson(url, { headers, signal }, []);
     return movie;
   };

@@ -24,7 +24,7 @@ function MoviesList() {
         style={{ width: "100%" }}
       />
       <Link
-        to={`/movies/${movie.movie_id}`}
+        to={`/movies/${movie.id}`}
         className="stretched-link text-dark"
       >
         <h3 className="font-poppins-heading text-center mt-2">{movie.title}</h3>
