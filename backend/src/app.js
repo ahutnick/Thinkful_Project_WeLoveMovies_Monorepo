@@ -1,11 +1,16 @@
-if (process.env.USER) require("dotenv").config();
+// if (process.env.USER) 
+require("dotenv").config();
 const express = require("express");
 const app = express();
+const cors = require("cors");
+
+const origin = process.env.NODE_ENV === "production" ? "https://thnkfl-welovemovies-client.herokuapp.com"  : "http://localhost:3000";
+
+app.use(cors({ origin: origin }));
 
 const moviesRouter = require("./movies/movies.router");
 const theatersRouter = require("./theaters/theaters.router");
 const reviewsRouter = require("./reviews/reviews.router");
-
 
 const notFound = require("./errors/notFound");
 const errorHandler = require("./errors/errorHandler");
